@@ -1,11 +1,14 @@
 # gatsby-plugin-s3
 
-[![](https://img.shields.io/npm/v/gatsby-plugin-s3.svg?style=flat)](https://npmjs.com/package/gatsby-plugin-s3) [![CircleCI](https://img.shields.io/circleci/build/github/jariz/gatsby-plugin-s3)](https://circleci.com/gh/jariz/gatsby-plugin-s3)
-
-![](https://jari.lol/KCB4gNo4Xg.gif)
-
 Enables you to deploy your gatsby site to a S3 bucket.
 Requires very little configuration, while optimizing your site as much as possible.
+
+## Note on this fork
+
+This fork was created to avoid the security vulnerabilities present on the official package (as of May 2023).
+- `fs-posix` has been removed, so watch out for issues on Windows
+- `proxy-agent` version has been updated
+- Monorepo structure has (unfortunately) been removed in order to make it easy to add the package with a github reference
 
 ## Features:
 
@@ -140,7 +143,6 @@ Serverless will give you the added advantage of being able to add multiple AWS s
 
 -   [See the recipe](https://gatsby-plugin-s3.jari.io/recipes/with-serverless)
     Bare bones implementation details on how to set up serverless & gatsby-plugin-s3
--   [See the `with-serverless` example](examples/with-serverless)
 
 ### Using a proxy
 
@@ -165,7 +167,3 @@ AWS S3 has a limit of 50 Routing Rules that can be applied to a bucket. Unfortun
 the number of 302 (temporary) redirects you can create. For 301 (permanent) redirects, a way to get around the limit is
 [setting the `x-amz-website-redirect-location` header on an empty object](https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 To enable this behavior, set the `generateRedirectObjectsForPermanentRedirects` configuration option to `true`.
-
-## Contributing:
-
-Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for instructions on how to set up your development environment.
