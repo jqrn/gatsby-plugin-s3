@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import '@babel/polyfill';
-import 'fs-posix';
 import S3, { NextToken, ObjectList, RoutingRules } from 'aws-sdk/clients/s3';
 import yargs from 'yargs';
 import { CACHE_FILES, GatsbyRedirect, Params, S3PluginOptions } from './constants';
